@@ -1,193 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Subhash Verma | Android Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subhash Verma | Android Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2ecc71; 
+            --sidebar-bg: #2ecc71;
+            --sidebar-text: #ffffff;
+            --bg: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-dim: #636e72;
+            --transition: all 0.3s ease;
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-    font-family:'Segoe UI',sans-serif;
-    background:#f4f6f9;
-    color:#333;
-}
-nav{
-    display:flex;
-    justify-content:space-between;
-    padding:20px 10%;
-    background:#fff;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-nav h2{color:#1e88e5;}
-nav a{text-decoration:none;margin-left:20px;color:#333;}
+        [data-theme="dark"] {
+            --bg: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-main: #f5f5f5;
+            --text-dim: #b2bec3;
+            --sidebar-bg: #1e1e1e;
+        }
 
-.hero{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:80px 10%;
-    flex-wrap:wrap;
-}
-.hero-text{
-    flex:1;
-}
-.hero-text h1{
-    font-size:45px;
-}
-.hero-text span{
-    color:#1e88e5;
-}
-.hero-text p{
-    margin-top:15px;
-    line-height:1.6;
-}
-.hero img{
-    width:350px;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-section{
-    padding:60px 10%;
-}
-h2{
-    margin-bottom:30px;
-    color:#1e88e5;
-}
-.card{
-    background:#fff;
-    padding:25px;
-    margin-bottom:20px;
-    border-radius:10px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
-}
-ul{padding-left:20px;}
-footer{
-    text-align:center;
-    padding:20px;
-    background:#1e88e5;
-    color:white;
-}
-@media(max-width:900px){
-.hero{flex-direction:column;}
-.hero img{margin-top:30px;}
-}
-</style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            display: flex;
+            transition: var(--transition);
+        }
+
+        aside {
+            width: 280px;
+            background: var(--sidebar-bg);
+            height: 100vh;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            color: var(--sidebar-text);
+            z-index: 100;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            margin-bottom: 15px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .sidebar-nav { width: 100%; margin-top: 30px; }
+        .sidebar-nav a {
+            display: block;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .sidebar-nav a:hover { background: rgba(255,255,255,0.1); }
+        .sidebar-nav i { margin-right: 10px; width: 20px; }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .social-links a {
+            color: var(--sidebar-text);
+            font-size: 1.2rem;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+        .social-links a:hover { opacity: 1; transform: translateY(-3px); }
+
+        .theme-switch-wrapper {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(255,255,255,0.3);
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px; width: 14px;
+            left: 3px; bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider { background-color: #34495e; }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        main {
+            margin-left: 280px;
+            flex: 1;
+            padding: 60px 8%;
+        }
+
+        .hero-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        .hero-content h1 { font-size: 3.2rem; margin-bottom: 10px; color: var(--text-main); }
+        .hero-content p { font-size: 1.1rem; color: var(--text-dim); max-width: 700px; line-height: 1.6; }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary);
+            color: var(--text-main);
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-main); }
+        .skill-item i { color: var(--primary); font-size: 1.2rem; }
+
+        .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+        .company-name { color: var(--primary); font-size: 1.3rem; font-weight: 800; }
+        .date { color: var(--text-dim); font-size: 0.9rem; font-weight: 600; }
+        .job-title { font-weight: 700; margin-bottom: 10px; display: block; color: var(--text-main); }
+        
+        ul.project-list { list-style: none; margin-top: 10px; }
+        ul.project-list li { margin-bottom: 8px; color: var(--text-dim); padding-left: 15px; position: relative; }
+        ul.project-list li::before { content: "•"; color: var(--primary); position: absolute; left: 0; font-weight: bold; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .btn-primary { background: var(--primary); color: white; border: none; }
+        .btn-primary:hover { background: #27ae60; transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); margin-left: 10px; }
+        .btn-outline:hover { background: var(--primary); color: white; }
+
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            aside { width: 100%; height: auto; position: relative; padding: 30px 20px; }
+            main { margin-left: 0; padding: 40px 5%; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .exp-header { flex-direction: column; }
+        }
+    </style>
 </head>
-
 <body>
 
-<nav>
-<h2>Portfolio</h2>
-<div>
-<a href="#about">About</a>
-<a href="#experience">Experience</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
+<aside>
+    <img src="https://i.ibb.co/Y7pY6H8/pro.jpg" alt="Subhash Verma" class="profile-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4712/4712035.png'">
+    <h3 style="font-weight: 800; letter-spacing: 0.5px;">Subhash Verma</h3>
+    <p style="font-size: 0.9rem; opacity: 0.9; font-weight: 400;">Android Developer</p>
 
-<div class="hero" id="about">
-<div class="hero-text">
-<h1>About <span>Me</span></h1>
-<p><strong>Subhash Verma</strong> – Android Developer with 4+ years of experience in 
-analysis, design, development, testing and deployment of Android applications.</p>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/subhash-verma-396462166/" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.naukri.com/mnjuser/profile?id=&altresid" target="_blank" title="Naukri.com">
+            <i class="fas fa-briefcase"></i>
+        </a>
+        <a href="https://github.com/subhash817" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
 
-<p>
-Strong expertise in Kotlin, Java, MVVM Architecture, Retrofit, Room DB, Firebase,
-Google Maps API, Payment Gateway Integration and performance optimization.
-Experience working on enterprise applications, EV solutions, HRMS systems,
-retail automation and project tracking platforms.
-</p>
-</div>
+    <nav class="sidebar-nav">
+        <a href="#about"><i class="fas fa-user"></i> About Me</a>
+        <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+        <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
 
-<img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png">
-</div>
+    <div class="theme-switch-wrapper">
+        <span>Light</span>
+        <label class="switch">
+            <input type="checkbox" id="checkbox">
+            <span class="slider"></span>
+        </label>
+        <span>Dark</span>
+    </div>
+</aside>
 
-<section>
-<h2>Technical Skills</h2>
+<main>
+    <div id="about" class="hero-section">
+        <div class="hero-content">
+            <h1>Subhash Verma</h1>
+            <p>Android Developer with 4 years of experience in analysis, design, development, and deployment of mobile applications. Expert in Kotlin, Java, and MVVM, with a proven track record in EV solutions and enterprise HRMS platforms[cite: 3, 4, 12].</p>
+            <div style="margin-top: 30px;">
+                <a href="mailto:vsubhash817@gmail.com" class="btn btn-primary">Hire Me</a>
+                <a href="Android_4_Year_subhash.pdf" target="_blank" class="btn btn-outline">View Resume</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="skills">
+        <h2 class="section-title">Core Expertise</h2>
+        <div class="card">
+            <div class="skill-grid">
+                <div class="skill-item"><i class="fab fa-android"></i> Kotlin & Java </div>
+                <div class="skill-item"><i class="fas fa-layer-group"></i> MVVM & Jetpack Compose </div>
+                <div class="skill-item"><i class="fas fa-map-marked-alt"></i> Google Maps API </div>
+                <div class="skill-item"><i class="fas fa-database"></i> Room & Firebase </div>
+                <div class="skill-item"><i class="fas fa-credit-card"></i> Payment Integration </div>
+                <div class="skill-item"><i class="fas fa-sync"></i> Retrofit & REST APIs </div>
+                <div class="skill-item"><i class="fab fa-google"></i> Flutter & Dart</div>
+                <div class="skill-item"><i class="fas fa-vial"></i> Unit & Integration Testing </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <div class="card">
+            <div class="exp-header">
+                <span class="company-name">JPR Technosoft</span>
+                <span class="date">Oct 2025 - Present</span>
+            </div>
+            <span class="job-title">Android Developer </span>
+            <ul class="project-list">
+                <li><strong>2ChargeEV:</strong> Developed an EV Charging Finder app with real-time station availability and trip planning[cite: 20, 21].</li>
+                <li><strong>2ChargeEV Partner:</strong> Built a station management app for operators featuring live monitoring and analytics[cite: 24, 26].</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="exp-header">
+                <span class="company-name">IBOTIX Pvt. Ltd. (V2 Retail)</span>
+                <span class="date">Dec 2024 - Oct 2025</span>
+            </div>
+            <span class="job-title">Android Developer </span>
+            <ul class="project-list">
+                <li>Developed enterprise retail apps including Paperless Pick List and Gondola Tracker[cite: 34, 38].</li>
+                <li>Implemented hybrid WebView applications with custom JavaScript interfaces[cite: 41, 42].</li>
+                <li>Built Project Progress Tracking systems with proof-of-work media uploads[cite: 51, 53].</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="exp-header">
+                <span class="company-name">Shyam Indus Power Solutions</span>
+                <span class="date">Jan 2023 - Dec 2024</span>
+            </div>
+            <span class="job-title">Android Developer </span>
+            <ul class="project-list">
+                <li><strong>SIPS HRMS:</strong> Developed employee management app with Geolocation attendance.</li>
+                <li><strong>SIPS Meter/POD:</strong> Created utility apps with seamless online/offline data sync.</li>
+            </ul>
+        </div>
+
 <div class="card">
-<ul>
-<li>Core Java, Kotlin</li>
-<li>Jetpack Compose, XML</li>
-<li>MVVM Architecture</li>
-<li>Retrofit, REST APIs</li>
-<li>Room Database, Firebase</li>
-<li>Google Maps API</li>
-<li>Payment Gateway Integration</li>
-<li>Git, Postman, Swagger</li>
-<li>Flutter & Dart (Basic)</li>
-</ul>
-</div>
-</section>
+            <div class="exp-header">
+                <span class="company-name">Cogniscient Business Solutions Pvt. LTD</span>
+                <span class="date">Jan 2022 - Jan 2023 </span>
+            </div>
+            <span class="job-title">Junior Android Developer </span>
+            <ul class="project-list">
+                
+                
+            </ul>
+        </div>
+    </section>
 
-<section id="experience">
-<h2>Professional Experience</h2>
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="card">
+            <div class="skill-grid">
+                <div class="skill-item"><i class="fas fa-envelope"></i> vsubhash817@gmail.com</div>
+                <div class="skill-item"><i class="fas fa-phone"></i> +91 8750372606 </div>
+                <div class="skill-item"><i class="fas fa-map-marker-alt"></i> Noida</div>
+            </div>
+        </div>
+    </section>
+</main>
 
-<div class="card">
-<h3>JPR Technosoft LLP – Android Developer (Oct 2025 – Present)</h3>
-<p><strong>2ChargeEV – EV Charging Finder App</strong></p>
-<ul>
-<li>Developed EV charging locator with real-time station availability.</li>
-<li>Integrated Google Maps API, Room DB, Firebase & Payment Gateway.</li>
-<li>Implemented trip planning & push notification features.</li>
-</ul>
+<script>
+    const toggleSwitch = document.querySelector('#checkbox');
+    const currentTheme = localStorage.getItem('theme');
 
-<p><strong>2ChargeEV Partner App</strong></p>
-<ul>
-<li>Built station management system for EV operators.</li>
-<li>Live charging monitoring, analytics & transaction history.</li>
-</ul>
-</div>
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
+    }
 
-<div class="card">
-<h3>IBOTIX Pvt Ltd – Android Developer (Dec 2024 – Oct 2025)</h3>
-<p><strong>Client: V2 Retail</strong></p>
-<ul>
-<li>Developed Paperless Pick List, Gondola Tracker & Travel Desk App.</li>
-<li>Built Project Progress Tracking System with proof uploads.</li>
-<li>Created hybrid WebView app with auto-update functionality.</li>
-<li>Implemented API integration & enterprise UI workflows.</li>
-</ul>
-</div>
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }    
+    }
 
-<div class="card">
-<h3>Shyam Indus Power Solutions Pvt Ltd (Jan 2023 – Dec 2024)</h3>
-<ul>
-<li>Developed SIPS HRMS with geolocation attendance & leave management.</li>
-<li>Built SIPS Meter App (Online/Offline mode support).</li>
-<li>Created SIPS POD App for bill collection & proof of delivery.</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Cogniscient Business Solutions Pvt Ltd (Jan 2022 – Jan 2023)</h3>
-<ul>
-<li>Worked on GH Group garment procurement B2B app.</li>
-<li>Developed HR Eye app for attendance & activity tracking.</li>
-</ul>
-</div>
-
-</section>
-
-<section>
-<h2>Education</h2>
-<div class="card">
-<p><strong>Bachelor of Computer Applications (BCA)</strong> – 2020</p>
-</div>
-</section>
-
-<section id="contact">
-<h2>Contact</h2>
-<div class="card">
-<p>Email: vsubhash817@gmail.com</p>
-<p>Phone: +91-8750372606</p>
-<p>Location: Noida, India</p>
-</div>
-</section>
-
-<footer>
-© 2026 Subhash Verma | Android Developer Portfolio
-</footer>
+    toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
 
 </body>
 </html>
