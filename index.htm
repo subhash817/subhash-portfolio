@@ -1,202 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Subhash | Android Developer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subhash Verma | Android Developer</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#f4f6f9;
+    color:#333;
+}
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 10%;
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+nav h2{color:#1e88e5;}
+nav a{text-decoration:none;margin-left:20px;color:#333;}
 
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-            color: white;
-        }
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px 10%;
+    flex-wrap:wrap;
+}
+.hero-text{
+    flex:1;
+}
+.hero-text h1{
+    font-size:45px;
+}
+.hero-text span{
+    color:#1e88e5;
+}
+.hero-text p{
+    margin-top:15px;
+    line-height:1.6;
+}
+.hero img{
+    width:350px;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 10%;
-            background: rgba(0,0,0,0.4);
-        }
-
-        nav h2 {
-            color: #00e5ff;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        header h1 {
-            font-size: 50px;
-        }
-
-        header span {
-            color: #00e5ff;
-        }
-
-        header p {
-            margin-top: 15px;
-            font-size: 20px;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 30px;
-            background: #00e5ff;
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
-        }
-
-        section {
-            padding: 60px 10%;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #00e5ff;
-            font-size: 32px;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.1);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0,0,0,0.5);
-            margin-top: 40px;
-        }
-
-        @media(max-width:768px){
-            header h1{
-                font-size:35px;
-            }
-        }
-
-    </style>
+section{
+    padding:60px 10%;
+}
+h2{
+    margin-bottom:30px;
+    color:#1e88e5;
+}
+.card{
+    background:#fff;
+    padding:25px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+ul{padding-left:20px;}
+footer{
+    text-align:center;
+    padding:20px;
+    background:#1e88e5;
+    color:white;
+}
+@media(max-width:900px){
+.hero{flex-direction:column;}
+.hero img{margin-top:30px;}
+}
+</style>
 </head>
 
 <body>
 
 <nav>
-    <h2>Subhash</h2>
-    <div>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-    </div>
+<h2>Portfolio</h2>
+<div>
+<a href="#about">About</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
 </nav>
 
-<header>
-    <h1>Hi, I'm <span>Subhash</span></h1>
-    <p>Professional Android Developer with 4+ Years Experience</p>
-    <a href="#contact" class="btn">Hire Me</a>
-</header>
+<div class="hero" id="about">
+<div class="hero-text">
+<h1>About <span>Me</span></h1>
+<p><strong>Subhash Verma</strong> – Android Developer with 4+ years of experience in 
+analysis, design, development, testing and deployment of Android applications.</p>
 
-<section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-        <p>
-            I am a passionate Android Developer with 4+ years of experience building,
-            testing, publishing, and maintaining high-performance Android applications.
-            I specialize in Java, Kotlin, MVVM architecture, Retrofit API integration,
-            and modern UI development using Jetpack Compose.
-        </p>
-    </div>
-</section>
+<p>
+Strong expertise in Kotlin, Java, MVVM Architecture, Retrofit, Room DB, Firebase,
+Google Maps API, Payment Gateway Integration and performance optimization.
+Experience working on enterprise applications, EV solutions, HRMS systems,
+retail automation and project tracking platforms.
+</p>
+</div>
 
-<section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="card">
-        <ul>
-            <li>✔ Java & Kotlin</li>
-            <li>✔ Android SDK</li>
-            <li>✔ XML & Jetpack Compose</li>
-            <li>✔ MVVM Architecture</li>
-            <li>✔ Retrofit API Integration</li>
-            <li>✔ Google Play Store Publishing</li>
-            <li>✔ Bug Fixing & App Maintenance</li>
-            <li>✔ Flutter & Dart (Basic)</li>
-        </ul>
-    </div>
+<img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png">
+</div>
+
+<section>
+<h2>Technical Skills</h2>
+<div class="card">
+<ul>
+<li>Core Java, Kotlin</li>
+<li>Jetpack Compose, XML</li>
+<li>MVVM Architecture</li>
+<li>Retrofit, REST APIs</li>
+<li>Room Database, Firebase</li>
+<li>Google Maps API</li>
+<li>Payment Gateway Integration</li>
+<li>Git, Postman, Swagger</li>
+<li>Flutter & Dart (Basic)</li>
+</ul>
+</div>
 </section>
 
 <section id="experience">
-    <h2>Work Experience</h2>
+<h2>Professional Experience</h2>
 
-    <div class="card">
-        <h3>Cogniscient Business Solutions Pvt. Ltd. </h3>
-        <p>Junior Android Developer</p>
-    </div>
+<div class="card">
+<h3>JPR Technosoft LLP – Android Developer (Oct 2025 – Present)</h3>
+<p><strong>2ChargeEV – EV Charging Finder App</strong></p>
+<ul>
+<li>Developed EV charging locator with real-time station availability.</li>
+<li>Integrated Google Maps API, Room DB, Firebase & Payment Gateway.</li>
+<li>Implemented trip planning & push notification features.</li>
+</ul>
 
-    <div class="card">
-        <h3>Shyam Indus Power Solutions Pvt Ltd</h3>
-        <p>Android Developer</p>
-    </div>
+<p><strong>2ChargeEV Partner App</strong></p>
+<ul>
+<li>Built station management system for EV operators.</li>
+<li>Live charging monitoring, analytics & transaction history.</li>
+</ul>
+</div>
 
-    <div class="card">
-        <h3>IBOTIX</h3>
-        <p>Android Developer</p>
-    </div>
+<div class="card">
+<h3>IBOTIX Pvt Ltd – Android Developer (Dec 2024 – Oct 2025)</h3>
+<p><strong>Client: V2 Retail</strong></p>
+<ul>
+<li>Developed Paperless Pick List, Gondola Tracker & Travel Desk App.</li>
+<li>Built Project Progress Tracking System with proof uploads.</li>
+<li>Created hybrid WebView app with auto-update functionality.</li>
+<li>Implemented API integration & enterprise UI workflows.</li>
+</ul>
+</div>
 
-    <div class="card">
-        <h3>JPR Technosoft LLP
-</h3>
-        <p>Android Developer</p>
-    </div>
+<div class="card">
+<h3>Shyam Indus Power Solutions Pvt Ltd (Jan 2023 – Dec 2024)</h3>
+<ul>
+<li>Developed SIPS HRMS with geolocation attendance & leave management.</li>
+<li>Built SIPS Meter App (Online/Offline mode support).</li>
+<li>Created SIPS POD App for bill collection & proof of delivery.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Cogniscient Business Solutions Pvt Ltd (Jan 2022 – Jan 2023)</h3>
+<ul>
+<li>Worked on GH Group garment procurement B2B app.</li>
+<li>Developed HR Eye app for attendance & activity tracking.</li>
+</ul>
+</div>
 
 </section>
 
 <section>
-    <h2>Education</h2>
-    <div class="card">
-        <p><strong>BCA</strong> – 2020</p>
-    </div>
+<h2>Education</h2>
+<div class="card">
+<p><strong>Bachelor of Computer Applications (BCA)</strong> – 2020</p>
+</div>
 </section>
 
 <section id="contact">
-    <h2>Contact Me</h2>
-    <div class="card">
-        <p>Email: vsubhash817@gmail.com</p>
-        <p>Phone: +91-8750372606</p>
-    </div>
+<h2>Contact</h2>
+<div class="card">
+<p>Email: vsubhash817@gmail.com</p>
+<p>Phone: +91-8750372606</p>
+<p>Location: Noida, India</p>
+</div>
 </section>
 
 <footer>
-    © 2026 Subhash | Android Developer Portfolio
+© 2026 Subhash Verma | Android Developer Portfolio
 </footer>
 
 </body>
