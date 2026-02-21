@@ -4,112 +4,166 @@
     <meta charset="UTF-8">
     <title>Subhash | Android Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 10%;
+            background: rgba(0,0,0,0.4);
+        }
+
+        nav h2 {
+            color: #00e5ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
         }
 
         header {
-            background: #1e88e5;
-            color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 100px 20px;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 40px;
+            font-size: 50px;
+        }
+
+        header span {
+            color: #00e5ff;
         }
 
         header p {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-
-        section {
-            padding: 40px 10%;
-        }
-
-        h2 {
-            color: #1e88e5;
-            border-bottom: 2px solid #1e88e5;
-            padding-bottom: 5px;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        footer {
-            background: #1e88e5;
-            color: white;
-            text-align: center;
-            padding: 20px;
+            margin-top: 15px;
+            font-size: 20px;
+            opacity: 0.9;
         }
 
         .btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #1e88e5;
-            color: white;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: #00e5ff;
+            color: black;
             text-decoration: none;
-            border-radius: 5px;
+            font-weight: bold;
+            border-radius: 30px;
         }
 
-        .btn:hover {
-            background: #1565c0;
+        section {
+            padding: 60px 10%;
         }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #00e5ff;
+            font-size: 32px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.5);
+            margin-top: 40px;
+        }
+
+        @media(max-width:768px){
+            header h1{
+                font-size:35px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
+<nav>
+    <h2>Subhash</h2>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
 <header>
-    <h1>Subhash</h1>
-    <p>Android Developer | 4+ Years Experience</p>
+    <h1>Hi, I'm <span>Subhash</span></h1>
+    <p>Professional Android Developer with 4+ Years Experience</p>
+    <a href="#contact" class="btn">Hire Me</a>
 </header>
 
-<section>
+<section id="about">
     <h2>About Me</h2>
     <div class="card">
         <p>
-            I am a professional Android Developer with 4+ years of experience in building,
-            maintaining and publishing Android applications. Skilled in Java, Kotlin,
-            XML, Jetpack Compose and MVVM architecture.
+            I am a passionate Android Developer with 4+ years of experience building,
+            testing, publishing, and maintaining high-performance Android applications.
+            I specialize in Java, Kotlin, MVVM architecture, Retrofit API integration,
+            and modern UI development using Jetpack Compose.
         </p>
     </div>
 </section>
 
-<section>
-    <h2>Education</h2>
+<section id="skills">
+    <h2>Technical Skills</h2>
     <div class="card">
-        <p><strong>BA</strong> – 2017</p>
-        <p><strong>PGDCA</strong> – 2024-2025</p>
+        <ul>
+            <li>✔ Java & Kotlin</li>
+            <li>✔ Android SDK</li>
+            <li>✔ XML & Jetpack Compose</li>
+            <li>✔ MVVM Architecture</li>
+            <li>✔ Retrofit API Integration</li>
+            <li>✔ Google Play Store Publishing</li>
+            <li>✔ Bug Fixing & App Maintenance</li>
+            <li>✔ Flutter & Dart (Basic)</li>
+        </ul>
     </div>
 </section>
 
-<section>
+<section id="experience">
     <h2>Work Experience</h2>
+
     <div class="card">
-        <h3>CBS</h3>
-        <p>Android Developer</p>
+        <h3>Cogniscient Business Solutions Pvt. Ltd. </h3>
+        <p>Junior Android Developer</p>
     </div>
 
     <div class="card">
-        <h3>SIPS</h3>
+        <h3>Shyam Indus Power Solutions Pvt Ltd</h3>
         <p>Android Developer</p>
     </div>
 
@@ -119,41 +173,30 @@
     </div>
 
     <div class="card">
-        <h3>JPR</h3>
+        <h3>JPR Technosoft LLP
+</h3>
         <p>Android Developer</p>
     </div>
+
 </section>
 
 <section>
-    <h2>Technical Skills</h2>
+    <h2>Education</h2>
     <div class="card">
-        <ul>
-            <li>Java</li>
-            <li>Kotlin</li>
-            <li>Android SDK</li>
-            <li>Jetpack Compose</li>
-            <li>XML</li>
-            <li>MVVM Architecture</li>
-            <li>Retrofit</li>
-            <li>Flutter (Basic)</li>
-            <li>Dart (Basic)</li>
-            <li>Play Store Publishing</li>
-            <li>Bug Fixing & App Maintenance</li>
-        </ul>
+        <p><strong>BCA</strong> – 2020</p>
     </div>
 </section>
 
-<section>
-    <h2>Contact</h2>
+<section id="contact">
+    <h2>Contact Me</h2>
     <div class="card">
-        <p>Email: your.email@example.com</p>
-        <p>Phone: +91-XXXXXXXXXX</p>
-        <a href="#" class="btn">Download Resume</a>
+        <p>Email: vsubhash817@gmail.com</p>
+        <p>Phone: +91-8750372606</p>
     </div>
 </section>
 
 <footer>
-    © 2026 Subhash | Android Developer
+    © 2026 Subhash | Android Developer Portfolio
 </footer>
 
 </body>
